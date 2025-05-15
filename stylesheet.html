@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salão de Beleza Produtos Ivone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9fb;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    :root {
+      --cor-principal: #dc94f1;
+      --cor-secundaria: #fff0f6;
+      --cor-botao: #b94fc8;
+      --cor-texto: #333;
+    }
+
+    header {
+      background-color: var(--cor-principal);
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      max-height: 150px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      padding: 3em 1em;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    #hero {
+      background: url('https://images.unsplash.com/photo-1600702051817-e3d7ec7b093c') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 4em 1em;
+    }
+
+    .hero-content {
+      background-color: rgba(0,0,0,0.5);
+      padding: 2em;
+      border-radius: 10px;
+    }
+
+    .button {
+      background-color: var(--cor-botao);
+      color: white;
+      padding: 0.75em 1.5em;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #a048b2;
+    }
+
+    .servicos-lista {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 2em;
+    }
+
+    .servico {
+      background-color: white;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .servico svg {
+      width: 40px;
+      height: 40px;
+      color: #dc94f1;
+      margin-bottom: 10px;
+    }
+
+    .agenda-container {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .agenda-form {
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex: 1 1 300px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .imagem-unica {
+      flex: 1 1 300px;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .imagem-unica img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .agenda-form label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    .agenda-form input,
+    .agenda-form select {
+      width: 100%;
+      padding: 0.7em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 0.8em 1em;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #20b858;
+    }
+
+    @media (max-width: 768px) {
+      .agenda-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .imagem-unica {
+        max-width: 100%;
+        margin-top: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1>ℐ𝓋𝑜𝓃𝑒 ℱ𝒾𝒶𝒾𝓈</h1>
+      <img src="tia-removebg-preview.png" alt="Logo do Salão" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#agenda">Agendar</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Transforme seu visual conosco!</h2>
+      <p>Cores, tratamentos e muito mais para realçar sua beleza.</p>
+      <a href="#agenda" class="button">Agende seu horário</a>
+    </div>
+  </section>
+
+  <section id="servicos">
+  <h2>Nossos Serviços</h2>
+  <div class="servicos-lista">
+    <div class="servico">
+      <i data-lucide="palette"></i>
+      <h3>Coloração</h3>
+      <p>Técnicas modernas que realçam sua beleza.</p>
+    </div>
+    <div class="servico">
+      <i data-lucide="droplet"></i>
+      <h3>Tratamentos</h3>
+      <p>Hidratação, reconstrução e muito mais.</p>
+    </div>
+    <div class="servico">
+      <i data-lucide="link"></i>
+      <h3>Tranças</h3>
+      <p>Estilos diversos e personalizados para cada tipo de cabelo.</p>
+    </div>
+    <div class="servico">
+      <i data-lucide="layers"></i>
+      <h3>Mega Hair</h3>
+      <p>Alongamento com aparência natural e acabamento perfeito.</p>
+    </div>
+    <div class="servico">
+      <i data-lucide="feather"></i>
+      <h3>Penteados</h3>
+      <p>Penteados elegantes para todas as ocasiões.</p>
+    </div>
+  </div>
+</section>
+
+  <section id="agenda">
+    <h2>Agende seu Horário</h2>
+    <div class="agenda-container">
+      <form id="agendaForm" class="agenda-form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone">
+
+        <label for="servico">Serviço Desejado:</label>
+        <select id="servico" name="servico" required>
+          <option value="" disabled selected>Selecione um serviço</option>
+          <option value="coloracao">Coloração</option>
+          <option value="tratamento">Tratamento</option>
+          <option value="trancas">Tranças</option>
+          <option value="mega_hair">Mega Hair</option>
+          <option value="penteados">Penteados</option>
+        </select>
+
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+
+        <button type="submit" class="button">Agendar via WhatsApp</button>
+      </form>
+
+      <div class="imagem-unica">
+        <img src="img1.jpg" alt="Imagem do salão" />
+      </div>
+    </div>
+    <p class="nota-agenda">Ao clicar em "Agendar via WhatsApp", você será redirecionado para o WhatsApp com uma mensagem de agendamento.</p>
+  </section>
+
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>Estamos ansiosos para cuidar de você!</p>
+    <p><strong>Telefone:</strong> (18) 996080055</p>
+    <p><strong>Email:</strong> contato@ivonesalao.com</p>
+    <p><strong>Endereço:</strong> Rua Exemplo, 123 - Bairro Centro - Cidade/SP</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Salão de Beleza Ivone. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5518996080055" target="_blank" class="whatsapp-float">
+    <i data-lucide="message-circle"></i> WhatsApp
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    document.getElementById('agendaForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const servico = document.getElementById('servico').value;
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+
+      const numeroWhatsApp = '18996080055';
+      const mensagem = `Olá! Gostaria de agendar um horário:\n\nNome: ${nome}\nTelefone: ${telefone}\nServiço: ${servico}\nData: ${data}\nHora: ${hora}`;
+      const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+      window.open(urlWhatsApp, '_blank');
+    });
+  </script>
+
+</body>
+</html>
